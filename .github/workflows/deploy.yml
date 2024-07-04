@@ -63,7 +63,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: teamgrit-lab
+          username: CoLearn-Docs
           password: ${{ secrets.GHCR_TOKEN }}
       - name: Docker image pull
         run: |
