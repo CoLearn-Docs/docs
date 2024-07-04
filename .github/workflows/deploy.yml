@@ -63,7 +63,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: CoLearn-Docs
+          username: colearn-docs
           password: ${{ secrets.GHCR_TOKEN }}
       - name: Docker image pull
         run: |
