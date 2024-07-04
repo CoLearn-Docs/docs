@@ -1,0 +1,73 @@
+name: Deploy CI/CD Docker
+
+on:
+  push:
+    branches: [main]
+
+# 환경설정
+env:
+  DOCKER_IMAGE: ghcr.io/colearn-docs
+  VERSION: ${{ github.sha }}
+  NAME: colearn-docs
+  PROJECT_VERSION: 0.0.1
+
+run-name: colearn-docs-0.0.1
+
+jobs:
+  # 빌드 Job
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ env.PROJECT_VERSION }}
+    steps:
+      # github repository에서 checkout
+      - uses: actions/checkout@v3
+      - run: ls -al
+      # docker build 수행
+      - name: Set up docker buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Cache docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ env.VERSION }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+      # GitHub 컨테이너 레지스트리에 로그인 후 빌드 & 푸시
+      - name: Login to ghcr
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: CoLearn-Docs
+          password: ${{ secrets.GHCR_TOKEN }}
+      # client
+      - name: Client build and push
+        id: client_docker_build
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: ${{ env.DOCKER_IMAGE }}/colearn-docs:${{env.PROJECT_VERSION}}
+  # 배포 Job
+  deploy:
+    needs: build # build 후에 실행되도록 정의
+    name: Deploy
+    runs-on: [self-hosted, label-colearn-docs]
+    env:
+      COLEARN_DOCS_VERSION: ${{ needs.build.outputs.version }}
+    steps:
+      # GitHub 컨테이너 레지스트리에 로그인
+      - name: Login to ghcr
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: teamgrit-lab
+          password: ${{ secrets.GHCR_TOKEN }}
+      - name: Docker image pull
+        run: |
+          docker pull ${{ env.DOCKER_IMAGE }}/colearn-docs:${{env.PROJECT_VERSION}}
+      - name: Docker run
+        run: |
+          docker-compose up --build -d colearn-docs
