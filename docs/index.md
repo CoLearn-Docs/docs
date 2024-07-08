@@ -18,7 +18,7 @@ hero:
 features:
   - title: Tutorial & Guide
     details: Guides
-    link: /guide/
+    link: /guide/essentials/
   - title: Changelog
     details: Changelog
     link: /changelog/
