@@ -48,7 +48,24 @@ export default defineConfig({
               link: "/guide/essentials/conclusion",
             },
           ],
-        }
+        },
+        {
+          text: "Examples",
+          items: [
+            {
+              text: "Protocol",
+              link: "/guide/examples/protocol",
+            },
+            {
+              text: "Broadcast",
+              link: "/guide/examples/broadcast",
+            },
+            {
+              text: "Control",
+              link: "/guide/examples/control",
+            }
+          ],
+        },
       ],
       "/changelog": [
         {
