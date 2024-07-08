@@ -1,5 +1,5 @@
 ---
-title: 'Moth'
+title: "Protocol: RSSP"
 ---
 
 # Moth 서버 프로토콜: RSSP (Realtime Simple Streaming Protocol)
@@ -30,7 +30,8 @@ RSSP 프로토콜은 다양한 형식의 데이터를 지원하며, MIME 정보�
 
 ## 이미지, 비디오, 오디오 코덱
 
-Moth 서버에서는 이미지, 비디오, 오디오 데이터에 대해 다양한 코덱을 지원합니다. MIME 정보를 통해 데이터의 형식을 나타내며, MIME 정보에 따라 적절한 처리 방식을 선택합니다. 
-+ 이미지 형식 : JPEG, PNG, WEBP, HEIF 등 지원
-+ 비디오 형식 : H.264, H.265, VP8, VP9, AV1 등 지원
-+ 오디오 형식 : Opus, Speex, AAC 등 지원
+Moth 서버에서는 이미지, 비디오, 오디오 데이터에 대해 다양한 코덱을 지원합니다. MIME 정보를 통해 데이터의 형식을 나타내며, MIME 정보에 따라 적절한 처리 방식을 선택합니다.
+
+- 이미지 형식 : JPEG, PNG, WEBP, HEIF 등 지원
+- 비디오 형식 : H.264, H.265, VP8, VP9, AV1 등 지원
+- 오디오 형식 : Opus, Speex, AAC 등 지원

@@ -1,5 +1,5 @@
 ---
-title: 'API'
+title: "Moth API"
 ---
 
 # API (Service)
@@ -59,9 +59,6 @@ Moth 서버의 서비스 API에서는 다양한 경로(Pathname)를 사용하여
 | total                             | 생성된 전체 버퍼의 수를 지정합니다. <br/> `total=[<2~10>]`                                                           | 선택                              |
 | order                             | 생성된 전체 버퍼 중에서 해당 번째의 버퍼를 사용합니다. <br/> `order=[<0~9>]`                                         | total 사용시 필수                 |
 | codec                             | 원하는 코덱의 이름을 지정합니다. 현재는 JPEG, VP8, H264 사이의 변환이 가능합니다. <br/> `codec=[jpeg\|vp8\|h264]`    | 선택 (sub)                        |
-
-
-
 
 ## 채널 사용 권한 인증
 

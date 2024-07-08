@@ -15,7 +15,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     logo: { src: "/vitepress-logo-mini.svg", width: 24, height: 24 },
     nav: [
-      { text: "Guide", link: "/guide/" },
+      { text: "Guide", link: "/guide/essentials/" },
       { text: "Changelog", link: "/changelog/" },
     ],
 
@@ -24,31 +24,31 @@ export default defineConfig({
         {
           text: "Getting Started",
           items: [
-            { text: "Introduction", link: "/guide/" },
-            // { text: "Quickstart", link: "/guide/quickstart" },
+            { text: "Introduction", link: "/guide/essentials/" },
+            // { text: "Quickstart", link: "/guide/essentials/quickstart" },
           ],
         },
         {
           text: "Essentials",
           items: [
             {
-              text: "Protocol",
-              link: "/guide/protocol-rssp",
+              text: "Protocol: RSSP",
+              link: "/guide/essentials/protocol-rssp",
             },
             {
               text: "API (Service)",
-              link: "/guide/api-service",
+              link: "/guide/essentials/api-service",
             },
             {
               text: "API (Admin)",
-              link: "/guide/api-administrator",
+              link: "/guide/essentials/api-administrator",
             },
             {
               text: "Conclusions",
-              link: "/guide/conclusion",
+              link: "/guide/essentials/conclusion",
             },
           ],
-        },
+        }
       ],
       "/changelog": [
         {

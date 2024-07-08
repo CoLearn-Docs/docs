@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: Start
-      link: /guide/
+      link: /guide/essentials/
     - theme: alt
       text: Go to CoLearn
       link: https://colearn.cobot.center
