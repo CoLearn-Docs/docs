@@ -71,6 +71,7 @@ export default defineConfig({
         {
           items: [
             { text: "✨ 최근 업데이트 내역", link: "/changelog" },
+            { text: "2024-07-08", link: "/changelog/2024-07-08" },
             { text: "2024-07-01", link: "/changelog/2024-07-01" },
           ],
         },
