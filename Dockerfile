@@ -15,6 +15,8 @@ FROM nginx:1.10.3
 
 EXPOSE 8005
 
+RUN ls -al /app/docs
+
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=builder /app/docs/dist /usr/share/nginx/html
