@@ -10,18 +10,13 @@ COPY . .
 
 RUN pnpm docs:build
 
-RUN ls -al
-RUN ls -al /app
-RUN ls -al /app/docs
+RUN ls -la /app/docs
+RUN ls -la /app/docs/dist
 
 # release step
 FROM nginx:1.10.3
 
 EXPOSE 8005
-
-RUN ls -al
-RUN ls -al /app
-RUN ls -al /app/docs
 
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
