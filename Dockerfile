@@ -11,7 +11,7 @@ COPY . .
 RUN pnpm docs:build
 
 RUN ls -la /app/docs
-RUN ls -la /app/docs/dist
+RUN ls -la /app/docs/.vitepress
 
 # release step
 FROM nginx:1.10.3
@@ -20,4 +20,4 @@ EXPOSE 8005
 
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=builder /app/docs/dist /usr/share/nginx/html
+COPY --from=builder /app/docs/dist/.vitepress /usr/share/nginx/html
