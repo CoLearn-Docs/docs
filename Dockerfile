@@ -1,7 +1,7 @@
 # build step
 FROM node:20 AS builder
 
-WORKDIR /
+WORKDIR /app
 
 COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm
@@ -22,4 +22,4 @@ EXPOSE 8005
 
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=builder /docs/dist /usr/share/nginx/html
+COPY --from=builder app/docs/dist /usr/share/nginx/html
