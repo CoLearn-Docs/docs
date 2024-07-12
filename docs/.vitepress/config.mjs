@@ -4,7 +4,6 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   base: "/",
   head: [["link", { rel: "icon", href: "/favicon.ico" }]],
-  outDir: "./dist",
   title: "CoLearn Docs",
   description: "CoLearn Docs",
   cleanUrls: true,
