@@ -1,7 +1,7 @@
 # build step
 FROM node:20 AS builder
 
-WORKDIR /app
+WORKDIR /
 
 COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm
