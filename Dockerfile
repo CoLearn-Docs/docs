@@ -22,4 +22,6 @@ EXPOSE 8005
 
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
+RUN ls app/docs
+
 COPY --from=builder app/docs/dist /usr/share/nginx/html
