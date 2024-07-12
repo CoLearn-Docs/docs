@@ -20,4 +20,4 @@ EXPOSE 8005
 
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=builder /app/docs/dist/.vitepress /usr/share/nginx/html
+COPY --from=builder /app/docs/.vitepress /usr/share/nginx/html
